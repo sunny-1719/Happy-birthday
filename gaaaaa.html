@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Romantic Memories ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd1dc);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* container */
+.container{
+width:90%;
+max-width:1100px;
+backdrop-filter:blur(18px);
+background:rgba(255,255,255,0.15);
+border-radius:25px;
+padding:30px;
+box-shadow:0 8px 40px rgba(0,0,0,0.2);
+}
+
+h1{
+text-align:center;
+color:white;
+margin-bottom:20px;
+letter-spacing:2px;
+}
+
+/* gallery */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+border-radius:20px;
+cursor:pointer;
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+transition:.6s;
+}
+
+.card:hover img{
+transform:scale(1.2);
+filter:brightness(70%);
+}
+
+.caption{
+position:absolute;
+bottom:0;
+width:100%;
+padding:15px;
+text-align:center;
+color:white;
+background:linear-gradient(transparent,rgba(0,0,0,.7));
+font-size:18px;
+opacity:0;
+transition:.5s;
+}
+
+.card:hover .caption{opacity:1;}
+
+/* hearts */
+.heart{
+position:absolute;
+color:white;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(.5);opacity:0}
+50%{opacity:1}
+100%{transform:translateY(-10vh) scale(1.3);opacity:0}
+}
+
+/* button */
+.btn-box{
+position:fixed;
+bottom:20px;
+width:100%;
+display:flex;
+justify-content:center;
+}
+
+.love-btn{
+padding:12px 26px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff4e88,#ff9ab5);
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 6px 18px rgba(0,0,0,.25);
+transition:.4s;
+}
+
+.love-btn:hover{
+transform:scale(1.1);
+background:linear-gradient(45deg,#ff2e6e,#ff7aa2);
+}
+/* music button */
+.music-box{
+position:fixed;
+top:20px;
+right:20px;
+z-index:999;
+}
+
+.music-btn{
+padding:12px 22px;
+border:none;
+border-radius:40px;
+font-size:15px;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#ff4e88,#ff9ab5);
+box-shadow:
+0 6px 18px rgba(0,0,0,.3),
+inset 0 2px 6px rgba(255,255,255,.3);
+backdrop-filter:blur(10px);
+transition:.4s;
+}
+
+.music-btn:hover{
+transform:translateY(-3px) scale(1.05);
+box-shadow:
+0 10px 25px rgba(0,0,0,.35),
+inset 0 2px 8px rgba(255,255,255,.4);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Our Beautiful Memories ❤️</h1>
+
+<div class="gallery">
+<div class="card">
+<img src="634764720_896317259961275_9135881811449589090_n.jpg">
+<div class="caption">You are my favorite place 💕</div>
+</div>
+
+<div class="card">
+<img src="636770689_1243877503803495_6959582119330805366_n.jpg">
+<div class="caption">Every moment feels magic ✨</div>
+</div>
+
+<div class="card">
+<img src="Screenshot 2026-02-25 010734.png">
+<div class="caption">Forever with you ❤️</div>
+</div>
+
+<div class="card">
+<img src="a37c4018-7bee-4465-8847-3ec2e3c811ac.png">
+<div class="caption">My heart belongs to you 🌙</div>
+</div>
+</div>
+</div>
+
+<div class="btn-box">
+  <a href="for you chhota.pdf"><button class="love-btn" >Click here jana ❤️</button></a>
+
+</div>
+
+<!-- Music Button -->
+<div class="music-box">
+   <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+</div>
+
+<audio id="bgMusic" src="Khat.mp3" loop></audio>
+
+
+
+<script>
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,700);
+const music = document.getElementById("bgMusic");
+const btn = document.querySelector(".music-btn");
+
+function toggleMusic(){
+if(music.paused){
+music.play();
+btn.innerHTML="💖 Playing...";
+}else{
+music.pause();
+btn.innerHTML="🎵 Play Music";
+}
+}
+
+
+</script>
+
+</body>
+</html>

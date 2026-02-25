@@ -1,0 +1,65 @@
+.gallery-wrap{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+}
+
+.carousel{
+    position:relative;
+    width:220px;
+    height:280px;
+    transform-style:preserve-3d;
+    animation:rotate 18s linear infinite;
+}
+
+.carousel span{
+    position:absolute;
+    inset:0;
+    transform:rotateY(calc(var(--i)*60deg)) translateZ(350px);
+}
+
+.carousel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transition:.4s;
+}
+
+.carousel img:hover{
+    transform:scale(1.1);
+}
+
+/* rotation animation */
+@keyframes rotate{
+    from{ transform:perspective(1000px) rotateY(0deg);}
+    to{ transform:perspective(1000px) rotateY(360deg);}
+}
+.btn-box{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.love-btn{
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff4e88,#ff9ab5);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    transition:0.4s;
+}
+
+.love-btn:hover{
+    transform:scale(1.12);
+    background:linear-gradient(45deg,#ff2e6e,#ff7aa2);
+}
